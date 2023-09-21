@@ -53,13 +53,13 @@ public class ShelterCats
 				input.nextLine();
 				
 				
-				if (userCatsOpinion.contains("yes"))
+				if (saysYes(userCatsOpinion))
 				{
 					System.out.println("I think " + catCount + " is an alright amount of cats too.");
 					userHasDecided = true;
 					userSaysEnoughCats = true;
 				}
-				else if (userCatsOpinion.contains("no"))
+				else if (saysNo(userCatsOpinion))
 				{
 					System.out.println("You know what, you're right. How many cats do we need?");
 					boolean correctValue = false;
@@ -72,30 +72,38 @@ public class ShelterCats
 						{
 							System.out.println("... That's less cats then what we currently have. Are you saying you want to get rid of some cats?");
 							wantsLessCats = input.nextLine();
-							if (wantsLessCats.contains("yes"))
+							if (saysYes(wantsLessCats))
 							{
 								System.out.println(".. Oh... ");
 								System.out.println("I guess we could return some cats to the shelter..");
 							}
-							else if (wantsLessCats.contains("no"))
+							else if (saysNo(wantsLessCats))
 							{
-								System.out.println("Oh yay! ");
+								System.out.println("Oh yay! Sooo.. How many cats do we need?");
 							}
 							
+						}
+						else if (oldNeededCatCount == neededCatCount)
+						{
+							System.out.println("... That's how many cats we already have. Did you mean to put that in?");
 						}
 						System.out.println("You think we need to have " + neededCatCount + " cats?");
 						userCatsOpinion = input.next();
 						input.nextLine();
-						if (userCatsOpinion.contains("yes"))
+						if (saysYes(userCatsOpinion))
 						{
 							System.out.println("Okay! Time to go to the shelter!");
 							correctValue = true;
 							hasEnoughCats = false;
 							userHasDecided = true;
 						}
-						else if (userCatsOpinion.contains("no"))
+						else if (saysNo(userCatsOpinion))
 						{
 							System.out.println("Oh, sorry. How many cats did you say we need?");
+						}
+						else
+						{
+							System.out.println("Sorry, I didn't understand what you said. You can say yes to confirm or no to deny the questions.");
 						}
 					}
 				}
@@ -104,6 +112,30 @@ public class ShelterCats
 					System.out.println("Please say 'yes' or 'no");
 				}
 			}
+		}
+	}
+	
+	public boolean saysYes(String opinion)
+	{
+		if ((opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")) ^ (opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean saysNo(String opinion)
+	{
+		if ((opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")) ^ (opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 }

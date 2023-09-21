@@ -1,18 +1,18 @@
 package cats.controller;
 
-import java.util.Scanner;
+import cats.model.*;
 
 public class Controller 
 {
-	private Scanner input; 
+	private ShelterCats cats;
 	
 	public Controller()
 	{
-		this.input = new Scanner(System.in);
+		this.cats = new ShelterCats();
 	}
 	
 	public void start()
 	{
-		
+		cats.callShelterCats();
 	}
 }
