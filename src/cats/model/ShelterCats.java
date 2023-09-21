@@ -117,7 +117,7 @@ public class ShelterCats
 	
 	public boolean saysYes(String opinion)
 	{
-		if ((opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")) ^ (opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")))
+		if ((opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")) && !(opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")))
 		{
 			return true;
 		}
@@ -129,7 +129,7 @@ public class ShelterCats
 	
 	public boolean saysNo(String opinion)
 	{
-		if ((opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")) ^ (opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")))
+		if ((opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")) && !(opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")))
 		{
 			return true;
 		}
