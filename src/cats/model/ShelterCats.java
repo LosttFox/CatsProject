@@ -36,14 +36,7 @@ public class ShelterCats
 		{
 			while (!hasEnoughCats)
 			{
-				System.out.println("Go to the shelter, you need another cat!");
-				catCount++;
-				
-				if (catCount >= neededCatCount)
-				{
-					hasEnoughCats = true;
-					userHasDecided = false;
-				}
+				getCatFromShelter();
 			}
 			
 			
@@ -178,6 +171,18 @@ public class ShelterCats
 		else
 		{
 			System.out.println("Please say 'yes' or 'no");
+		}
+	}
+
+	public void getCatFromShelter()
+	{
+		System.out.println("Go to the shelter, you need another cat!");
+		catCount++;
+
+		if (catCount >= neededCatCount)
+		{
+			hasEnoughCats = true;
+			userHasDecided = false;
 		}
 	}
 }
