@@ -87,23 +87,9 @@ public class ShelterCats
 						{
 							System.out.println("... That's how many cats we already have. Did you mean to put that in?");
 						}
-						System.out.println("You think we need to have " + neededCatCount + " cats?");
-						userCatsOpinion = input.next();
-						input.nextLine();
-						if (saysYes(userCatsOpinion))
-						{
-							System.out.println("Okay! Time to go to the shelter!");
-							correctValue = true;
-							hasEnoughCats = false;
-							userHasDecided = true;
-						}
-						else if (saysNo(userCatsOpinion))
-						{
-							System.out.println("Oh, sorry. How many cats did you say we need?");
-						}
 						else
 						{
-							System.out.println("Sorry, I didn't understand what you said. You can say yes to confirm or no to deny the questions.");
+							confirmNeededCats();
 						}
 					}
 				}
@@ -136,6 +122,29 @@ public class ShelterCats
 		else
 		{
 			return false;
+		}
+	}
+
+	public void confirmNeededCats()
+	{
+		System.out.println("You think we need to have " + neededCatCount + " cats?");
+		userCatsOpinion = input.next();
+		input.nextLine();
+
+		if (saysYes(userCatsOpinion))
+		{
+			System.out.println("Okay! Time to go to the shelter!");
+			correctValue = true;
+			hasEnoughCats = false;
+			userHasDecided = true;
+		}
+		else if (saysNo(userCatsOpinion))
+		{
+			System.out.println("Oh, sorry. How many cats did you say we need?");
+		}
+		else
+		{
+			System.out.println("Sorry, I didn't understand what you said. You can say yes to confirm or no to deny the questions.");
 		}
 	}
 }
