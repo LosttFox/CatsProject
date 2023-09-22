@@ -45,6 +45,8 @@ public class ShelterCats
 				isCatCountEnough();
 			}
 		}
+
+		System.out.println("Yayyy!!!! We have " + catCount + " cats now! :3");
 	}
 	
 	public boolean saysYes(String opinion)
