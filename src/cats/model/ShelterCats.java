@@ -70,17 +70,7 @@ public class ShelterCats
 						input.nextLine();
 						if (oldNeededCatCount > neededCatCount)
 						{
-							System.out.println("... That's less cats then what we currently have. Are you saying you want to get rid of some cats?");
-							wantsLessCats = input.nextLine();
-							if (saysYes(wantsLessCats))
-							{
-								System.out.println(".. Oh... ");
-								System.out.println("I guess we could return some cats to the shelter..");
-							}
-							else if (saysNo(wantsLessCats))
-							{
-								System.out.println("Oh yay! Sooo.. How many cats do we need?");
-							}
+
 							
 						}
 						else if (oldNeededCatCount == neededCatCount)
@@ -145,6 +135,22 @@ public class ShelterCats
 		else
 		{
 			System.out.println("Sorry, I didn't understand what you said. You can say yes to confirm or no to deny the questions.");
+		}
+
+	}
+
+	public void confirmWantsLessCats()
+	{
+		System.out.println("... That's less cats then what we currently have. Are you saying you want to get rid of some cats?");
+		wantsLessCats = input.nextLine();
+		if (saysYes(wantsLessCats))
+		{
+			System.out.println(".. Oh... ");
+			System.out.println("I guess we could return some cats to the shelter..");
+		}
+		else if (saysNo(wantsLessCats))
+		{
+			System.out.println("Oh yay! Sooo.. How many cats do we need?");
 		}
 	}
 }
