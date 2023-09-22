@@ -12,6 +12,7 @@ public class ShelterCats
 	private int neededCatCount = 100;
 	private int oldNeededCatCount;
 	private String wantsLessCats;
+	private String sameCatCount;
 	
 	public ShelterCats()
 	{
@@ -62,20 +63,20 @@ public class ShelterCats
 				else if (saysNo(userCatsOpinion))
 				{
 					System.out.println("You know what, you're right. How many cats do we need?");
+					hasEnoughCats = false;
 					boolean correctValue = false;
+					oldNeededCatCount = neededCatCount;
 					while (!correctValue)
 					{
-						oldNeededCatCount = neededCatCount;
 						neededCatCount = input.nextInt();
 						input.nextLine();
 						if (oldNeededCatCount > neededCatCount)
 						{
-
-							
+							confirmWantsLessCats();
 						}
 						else if (oldNeededCatCount == neededCatCount)
 						{
-							System.out.println("... That's how many cats we already have. Did you mean to put that in?");
+							confirmSameCatCount();
 						}
 						else
 						{
@@ -153,4 +154,23 @@ public class ShelterCats
 			System.out.println("Oh yay! Sooo.. How many cats do we need?");
 		}
 	}
+
+	public void confirmSameCatCount()
+	{
+		System.out.println("... That's how many cats we already have. Did you mean to put that in?");
+		sameCatCount = input.nextLine();
+
+		if (saysYes(sameCatCount))
+		{
+			System.out.println("Ok, well uh.. I'm just gonna say that " + catCount + " is enough cats then.");
+			userHasDecided = true;
+			userSaysEnoughCats = true;
+		}
+		else if (saysNo(sameCatCount))
+		{
+			System.out.println("I assumed so. How many cats did you mean to say we needed?");
+		}
+	}
+
+
 }
