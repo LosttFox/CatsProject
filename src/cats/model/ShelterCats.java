@@ -62,27 +62,7 @@ public class ShelterCats
 				}
 				else if (saysNo(userCatsOpinion))
 				{
-					System.out.println("You know what, you're right. How many cats do we need?");
-					hasEnoughCats = false;
-					boolean correctValue = false;
-					oldNeededCatCount = neededCatCount;
-					while (!correctValue)
-					{
-						neededCatCount = input.nextInt();
-						input.nextLine();
-						if (oldNeededCatCount > neededCatCount)
-						{
-							confirmWantsLessCats();
-						}
-						else if (oldNeededCatCount == neededCatCount)
-						{
-							confirmSameCatCount();
-						}
-						else
-						{
-							confirmNeededCats();
-						}
-					}
+					userSaysMoreCats();
 				}
 				else
 				{
@@ -172,5 +152,28 @@ public class ShelterCats
 		}
 	}
 
-
+	public void userSaysMoreCats()
+	{
+		System.out.println("You know what, you're right. How many cats do we need?");
+		hasEnoughCats = false;
+		boolean correctValue = false;
+		oldNeededCatCount = neededCatCount;
+		while (!correctValue)
+		{
+			neededCatCount = input.nextInt();
+			input.nextLine();
+			if (oldNeededCatCount > neededCatCount)
+			{
+				confirmWantsLessCats();
+			}
+			else if (oldNeededCatCount == neededCatCount)
+			{
+				confirmSameCatCount();
+			}
+			else
+			{
+				confirmNeededCats();
+			}
+		}
+	}
 }
