@@ -49,25 +49,7 @@ public class ShelterCats
 			
 			while (!userHasDecided)
 			{
-				System.out.println("Is " + catCount + " enough cats?");
-				String userCatsOpinion = input.next();
-				input.nextLine();
-				
-				
-				if (saysYes(userCatsOpinion))
-				{
-					System.out.println("I think " + catCount + " is an alright amount of cats too.");
-					userHasDecided = true;
-					userSaysEnoughCats = true;
-				}
-				else if (saysNo(userCatsOpinion))
-				{
-					userSaysMoreCats();
-				}
-				else
-				{
-					System.out.println("Please say 'yes' or 'no");
-				}
+				isCatCountEnough();
 			}
 		}
 	}
@@ -174,6 +156,28 @@ public class ShelterCats
 			{
 				confirmNeededCats();
 			}
+		}
+	}
+
+	public void isCatCountEnough()
+	{
+		System.out.println("Is " + catCount + " enough cats?");
+		String userCatsOpinion = input.nextLine();
+
+
+		if (saysYes(userCatsOpinion))
+		{
+			System.out.println("I think " + catCount + " is an alright amount of cats too.");
+			userHasDecided = true;
+			userSaysEnoughCats = true;
+		}
+		else if (saysNo(userCatsOpinion))
+		{
+			userSaysMoreCats();
+		}
+		else
+		{
+			System.out.println("Please say 'yes' or 'no");
 		}
 	}
 }
