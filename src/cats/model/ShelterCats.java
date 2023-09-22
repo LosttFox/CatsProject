@@ -6,17 +6,30 @@ public class ShelterCats
 {
 	private Scanner input;
 	private boolean hasEnoughCats;
-	private boolean userSaysEnoughCats = false;
-	private boolean userHasDecided = false;
-	private int catCount = 0;
-	private int neededCatCount = 100;
+	private boolean userSaysEnoughCats;
+	private boolean userHasDecided;
+	private boolean correctValue;
+	private int catCount;
+	private int neededCatCount;
 	private int oldNeededCatCount;
 	private String wantsLessCats;
 	private String sameCatCount;
+	private String userCatsOpinion;
 	
 	public ShelterCats()
 	{
 		this.input = new Scanner(System.in);
+		
+		this.hasEnoughCats = false;
+		this.userSaysEnoughCats = false;
+		this.userHasDecided = false;
+		this.correctValue = false;
+		this.catCount = 0;
+		this.neededCatCount = 100;
+		this.oldNeededCatCount = -1;
+		this.wantsLessCats = "";
+		this.sameCatCount = "";
+		this.userCatsOpinion = "";
 	}
 	
 	
@@ -51,7 +64,7 @@ public class ShelterCats
 	
 	public boolean saysYes(String opinion)
 	{
-		if ((opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")) && !(opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")))
+		if ((opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure") || opinion.contains("yea")) && !(opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")))
 		{
 			return true;
 		}
@@ -63,7 +76,7 @@ public class ShelterCats
 	
 	public boolean saysNo(String opinion)
 	{
-		if ((opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")) && !(opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure")))
+		if ((opinion.contains("no") || opinion.contains("nuh uh") || opinion.contains("not")) && !(opinion.contains("yes") || opinion.contains("ya") || opinion.contains("ok") || opinion.contains("sure") || opinion.contains("yea")))
 		{
 			return true;
 		}
@@ -76,8 +89,7 @@ public class ShelterCats
 	public void confirmNeededCats()
 	{
 		System.out.println("You think we need to have " + neededCatCount + " cats?");
-		userCatsOpinion = input.next();
-		input.nextLine();
+		userCatsOpinion = input.nextLine();
 
 		if (saysYes(userCatsOpinion))
 		{
@@ -122,6 +134,7 @@ public class ShelterCats
 			System.out.println("Ok, well uh.. I'm just gonna say that " + catCount + " is enough cats then.");
 			userHasDecided = true;
 			userSaysEnoughCats = true;
+			correctValue = true;
 		}
 		else if (saysNo(sameCatCount))
 		{
@@ -133,7 +146,7 @@ public class ShelterCats
 	{
 		System.out.println("You know what, you're right. How many cats do we need?");
 		hasEnoughCats = false;
-		boolean correctValue = false;
+		correctValue = false;
 		oldNeededCatCount = neededCatCount;
 		while (!correctValue)
 		{
@@ -157,12 +170,11 @@ public class ShelterCats
 	public void isCatCountEnough()
 	{
 		System.out.println("Is " + catCount + " enough cats?");
-		String userCatsOpinion = input.nextLine();
+		userCatsOpinion = input.nextLine();
 
 
 		if (saysYes(userCatsOpinion))
 		{
-			System.out.println("I think " + catCount + " is an alright amount of cats too.");
 			userHasDecided = true;
 			userSaysEnoughCats = true;
 		}
@@ -172,7 +184,7 @@ public class ShelterCats
 		}
 		else
 		{
-			System.out.println("Please say 'yes' or 'no");
+			System.out.println("Please say 'yes' or 'no'");
 		}
 	}
 
