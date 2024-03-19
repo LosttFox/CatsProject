@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/Users/apar2057/Documents/dev/Java/CatsProject/slick.zip"/>
+	<classpathentry kind="lib" path="/Users/apar2057/Documents/dev/Java/CatsProject/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
